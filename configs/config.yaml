@@ -1,0 +1,17 @@
+old-version:
+  postgres:
+    username: mainflux
+    password: mainflux
+    port: 5432
+    host: localhost
+    database: users
+  admin:
+    email: admin@example.com
+    password: 12345678
+
+new-version:
+  clients:
+    url: https://localhost:9191
+  admin:
+    email: admin@example.com
+    password: 12345678
