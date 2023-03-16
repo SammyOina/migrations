@@ -5,6 +5,10 @@ old-version:
     port: 5432
     host: localhost
     database: users
+    ssl-mode: 
+    ssl-cert:
+    ssl-key:
+    ssl-root-cert:
   admin:
     email: admin@example.com
     password: 12345678

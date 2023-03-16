@@ -18,11 +18,15 @@ type Configs struct {
 }
 
 type PostgresConfig struct {
-	Username string `mapstructure:"username"`
-	Password string `mapstructure:"password"`
-	Port     int    `mapstructure:"port"`
-	Host     string `mapstructure:"host"`
-	DB       string `mapstructure:"database"`
+	Username    string `mapstructure:"username"`
+	Password    string `mapstructure:"password"`
+	Port        int    `mapstructure:"port"`
+	Host        string `mapstructure:"host"`
+	DB          string `mapstructure:"database"`
+	SSLMode     string `mapstructure:"ssl-mode"`
+	SSLCert     string `mapstructure:"ssl-cert"`
+	SSLKey      string `mapstructure:"ssl-key"`
+	SSLRootCert string `mapstructure:"ssl-root-cert"`
 }
 
 type AdminAccount struct {
@@ -37,6 +41,7 @@ type ClientConfig struct {
 func GetConfigs(file, path string) (*Configs, error) {
 	viper.SetConfigName(file)
 	viper.AddConfigPath(path)
+	viper.SetDefault("old-version.postgres.ssl-mode", "disable")
 	if err := viper.ReadInConfig(); err != nil {
 		return nil, err
 	}
